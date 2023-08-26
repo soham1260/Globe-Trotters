@@ -1,0 +1,22 @@
+
+<%- include("partials/header"); -%>
+    <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">Globe Trotters</h1>
+    <p style="text-align: center;"> <%= startingContent %> </p>
+
+
+  <%  posts.forEach(function(post){ %>
+
+    <h1><%=post.title%></h1>
+    <p>
+    <%=post.content.substring(0, 150)%>
+    <%if(post.content.length>150){%>
+    <a href="/posts/<%=post._id%>">...Read More</a>
+    <%}%>
+    </p>
+    <div style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"><i>~ <%= post.user.name %></i></div>
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
